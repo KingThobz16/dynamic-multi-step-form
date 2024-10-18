@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Multi Step Form</title>
+</head>
+<body>
+
+    <div class="container-md bg-white rounded-2">
+        <div class="row">
+            <!---------------------- Sidebar Start ---------------------->
+            <!--  -->
+            <!--  -->
+            <nav class="col-md-7 col-lg-4 pt-5 pb-5 p-4 border-end">
+                <ul class="nav flex-column">
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item sidebar-item-active">
+                        <div style="width: 40px;">
+                            <i class="bi bi-globe fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">Basic Details</p>
+                            <span class="text-black-50 sidebar-label">Information about work</span>
+                        </div>
+                    </li>                    
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item">
+                        <div style="width: 40px;">
+                            <i class="bi bi-geo-alt fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">ID & Location</p>
+                            <span class="text-black-50 sidebar-label">ID & Location of work</span>
+                        </div>
+                    </li>  
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item">
+                        <div style="width: 40px;">
+                            <i class="bi bi-images fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">Images</p>
+                            <span class="text-black-50 sidebar-label">Gallery & imagery</span>
+                        </div>
+                    </li>  
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item">
+                        <div style="width: 40px;">
+                            <i class="bi bi-journal-bookmark fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">Notes</p>
+                            <span class="text-black-50 sidebar-label">Private & public notes about work</span>
+                        </div>
+                    </li>  
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item">
+                        <div style="width: 40px;">
+                            <i class="bi bi-piggy-bank fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">Financials</p>
+                            <span class="text-black-50 sidebar-label">Financial Information</span>
+                        </div>
+                    </li>  
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item">
+                        <div style="width: 40px;">
+                            <i class="bi bi-cart fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">Sales & Statuses</p>
+                            <span class="text-black-50 sidebar-label">Sales & Statuses</span>
+                        </div>
+                    </li>  
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item">
+                        <div style="width: 40px;">
+                            <i class="bi bi-clock-history fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">Artwork Condition & Provenance</p>
+                            <span class="text-black-50 sidebar-label">Condition and history of work</span>
+                        </div>
+                    </li>  
+                    <li class="nav-item d-flex p-3 mb-2 sidebar-item">
+                        <div style="width: 40px;">
+                            <i class="bi bi-files fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="m-0">Link Documents</p>
+                            <span class="text-black-50 sidebar-label">All documents related to work</span>
+                        </div>
+                    </li>  
+                </ul>
+            </nav>
+            <!--  -->
+            <!--  -->
+            <!---------------------- Sidebar End ---------------------->
+            
+
+            <!---------------------- Form Area Start ---------------------->
+            <!--  -->
+            <!--  -->
+            <main class="col-md-5 col-lg-8" style="padding: 4rem 5rem;">
+                <form id="multiStepForm">
+                    <!----- Step 1: Basic Details ----->
+                    <section class="step active" id="step1">
+                        <h5 class="mb-3">Basic Details</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between">
+                                    <label for="artist" class="form-label">Artist</label>
+                                    <span class="ms-2 add-new" data-target="artist">+ add new</span>
+                                </div>
+                                <select class="form-select required" id="artist">
+                                    <option value="">&lt; No Artist &gt;</option>
+                                    <option>Artist 1</option>
+                                    <option>Artist 2</option>
+                                    <option>Artist 3</option>
+                                </select>
+                                <span class="error-message" id="artistError">Please select an artist</span>                  
+                            </div>
+                            <div class="col-md-6">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control required" id="title" placeholder="Work Title">
+                                <span class="error-message" id="titleError">Please enter a title</span>
+                            </div>
+                        </div>
+    
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="yearCreated" class="form-label">Year Created</label>
+                                <input type="number" class="form-control required" id="yearCreated">
+                                <span class="error-message" id="yearCreatedError">Please enter the year this work was created</span>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between">
+                                    <label for="medium" class="form-label">Select Medium</label>
+                                    <span class="ms-2 add-new" data-target="medium">+ add new</span>
+                                </div>
+                                <select class="form-select required custom-dropdown" id="medium">
+                                    <option value="">Please select</option>
+                                    <option>Default Medium</option>
+                                    <option>Colour lithograph</option>
+                                    <option>Etching</option>
+                                    <option>Oil on canvas</option>
+                                    <option>Screen Print</option>
+                                    <option>Oil on board</option>
+                                </select>
+                                <span class="error-message" id="mediumError">Please select a Medium</span> 
+                            </div>
+                        </div>
+    
+                        <div class="row mb-4">
+                            <div class="col-md-12 mb-4">
+                                <div class="d-flex justify-content-between">
+                                    <label for="inscriptions" class="form-label">Inscriptions</label>
+                                    <span class="ms-2 add-new" data-target="inscriptions">+ add new</span>
+                                </div>
+                                <select class="form-select required" id="inscriptions">
+                                    <option value="">Please select</option>
+                                    <option>Inscriptions 1</option>
+                                    <option>Inscriptions 2</option>
+                                    <option>Inscriptions 3</option>
+                                </select>
+                                <span class="error-message" id="inscriptionsError">Please select a Inscriptions</span> 
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between">
+                                    <label for="category" class="form-label">Category</label>
+                                    <span class="ms-2 add-new" data-target="category">+ add new</span>
+                                </div>
+                                <select class="form-select required" id="category" >
+                                    <option value="">Please select</option>
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                </select>
+                                <span class="error-message" id="categoryError">Please select a Category</span> 
+                            </div>
+                        </div>
+    
+                        <div class="row mb-4 pb-4">
+                            <div class="col-md-6">
+                                <label for="branch" class="form-label">Branch</label>
+                                <select class="form-select required" id="branch">
+                                    <option value="">Please select</option>
+                                    <option>Branch 1</option>
+                                    <option>Branch 2</option>
+                                </select>
+                                <span class="error-message" id="branchError">Please select a branch</span> 
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between">
+                                    <label for="ownership" class="form-label">Ownership</label>
+                                    <span class="ms-2 add-new" data-target="ownership">+ add new</span>
+                                </div>
+                                <select class="form-select required" id="ownership">
+                                    <option value="">Please select</option>
+                                    <option>Ownership 1</option>
+                                    <option>Ownership 2</option>
+                                </select>
+                                <span class="error-message" id="ownershipError">Please select Ownership</span> 
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <!----- Step 2: ID & Location ----->
+                    <section class="step" id="step2">
+                        <h5 class="mb-3">ID & Location</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between">
+                                    <label for="locations" class="form-label">locations</label>
+                                    <span class="ms-2 add-new" data-target="locations">+ add new</span>
+                                </div>
+                                <select class="form-select required" id="locations">
+                                    <option value="">Please select</option>
+                                    <option>Location 1</option>
+                                    <option>Location 2</option>
+                                </select>
+                                <span class="error-message" id="locationsError">Please select a location</span>                            
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inventory" class="form-label">Inventory ID</label>
+                                <input type="text" class="form-control required" id="inventory" placeholder="">
+                                <span class="error-message" id="inventoryError">Please enter an Inventory ID</span>
+                            </div>
+                        </div>    
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="accession" class="form-label">Accession ID</label>
+                                <input type="text" class="form-control required" id="accession" placeholder="">
+                                <span class="error-message" id="accessionError">Please enter an Accession ID</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="partner" class="form-label">Partner ID</label>
+                                <input type="text" class="form-control required" id="partner" placeholder="">
+                                <span class="error-message" id="partnerError">Please enter a Partner ID</span>
+                            </div>
+                        </div>    
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="barcode" class="form-label">barcode Number</label>
+                                <input type="number" class="form-control required" id="barcode" placeholder="">
+                                <span class="error-message" id="barcodeError">Please enter an barcode Number</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="rfid" class="form-label">Active RFID Tag Number</label>
+                                <input type="number" class="form-control required" id="rfid" placeholder="">
+                                <span class="error-message" id="rfidError">Please enter an Active RFID Tag Number</span>
+                            </div>
+                        </div>    
+                    </section>
+
+                    <!----- Buttons ----->
+                     <div class="d-flex justify-content-between mt-4 pt-4 border-top">
+                        <div class="previous">
+                            <button type="button" class="btn btn-light prev-step">PREVIOUS</button>
+                        </div>
+                        <div class="save">
+                            <button type="button" class="btn btn-success me-2 save-exit">SAVE & EXIT</button>
+                            <button type="button" class="btn btn-dark save-return">SAVE & RETURN</button>
+                        </div>
+                        <div class="next">
+                            <button type="button" class="btn btn-primary next-step">NEXT STEP</button>
+                        </div>
+                        <div class="submit">
+                            <button type="submit" class="btn btn-primary">SUBMIT</button>
+                        </div>
+                     </div>
+                </form>
+            </main>
+            <!--  -->
+            <!--  -->
+            <!---------------------- Form Area End ---------------------->
+        </div>
+    </div>
+
+    <!---------------------- Modal Start ---------------------->
+    <!--  -->
+    <!--  -->
+    <div class="modal fade" id="addOptionModal" tabindex="-1" aria-labelledby="addOptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addOptionModalLabel">Add New Option</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="newOptionInput" class="form-control" placeholder="Enter new option">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveNewOption">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <!--  -->
+    <!---------------------- Modal End ---------------------->
+
+
+    <!---------------------- Scripts ---------------------->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+    
+</body>
+</html>
